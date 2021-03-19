@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package hashtagapi;
+
+service HashtagService {
+    rpc CreateHashtag (CreateHashtagRequest) returns (CreateHashtagResponse);
+    rpc UpdateHashtag (UpdateHashtagRequest) returns (UpdateHashtagResponse);
+    rpc GetHashtag (GetHashtagRequest) returns (GetHashtagResponse);
+    rpc DeleteHashtag (DeleteHashtagRequest) returns (DeleteHashtagResponse);
+    
+}
+
+
+message UpdateHashtagRequest{
+    string commentid = 1;
+    string userid = 2;
+    string postid = 3;
+    string replyid = 4;
+    string tagged_user = 5;
+    
+}
+
+message UpdateHashtagResponse{
+    bool status = 1;
+}
+
+message DeleteHashtagResponse{
+    bool status = 1;
+}
+
+message DeleteHashtagRequest{
+    string commentid = 1;
+    
+    string postid = 2;
+    string replyid = 3;
+}
+
+
+
+message CreateHashtagRequest {
+
+    string commentid = 1;
+    string userid = 2;
+    string postid = 3;
+    string replyid = 4;
+    string tagged_user = 5;
+
+}
+
+message CreateHashtagResponse {
+    string commentid = 1;
+    string userid = 2;
+    string postid = 3;
+    string replyid = 4;
+    string tagged_user = 5;
+}
+
+message GetHashtagRequest{
+    string commentid = 1;
+    string userid = 2;
+    string postid = 3;
+    string replyid = 4;
+}
+
+
+message GetHashtagResponse {
+    string commentid = 1;
+    string userid = 2;
+    string postid = 3;
+    string replyid = 4;
+    string hashtag = 5;
+}
